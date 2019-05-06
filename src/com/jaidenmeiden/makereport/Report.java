@@ -6,6 +6,19 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 
+/**
+ * <h1>Report</h1>
+ * Report es una clase para generar archivos
+ * <p>
+ * Esta clase se utiliza para generar archivos con contenido personalizado 
+ * usando la función {@code makeReport()} que es la que escribe el contenido en 
+ * el archivo de texto. Se podría configurar con un formato especifico.
+ * 
+ * 
+ * @author Highlander Sword
+ * @version 1.1
+ * @since 2018
+ * */
 public class Report {
 	
 	private String nameFile;
@@ -45,14 +58,17 @@ public class Report {
 		this.extension = extension;
 	}
 	
+	/**
+	 * {@code makeReport()} que es la que escribe el contenido en el archivo de texto
+	 * */
 	public void makeReport() {
 		if ( (getNameFile() != null) && (getTitle() != null) && (getContent() != null) ) {
 			//Crear el archivo
 			try {
 				
 				File file = new File(getNameFile()+"."+getExtension());//Se crea el archivo
-				FileOutputStream fos = new FileOutputStream(file);//Covierte el archivo a String de bytes
-				OutputStreamWriter osw = new OutputStreamWriter(fos);//Covierte todos los bytes en el archivo
+				FileOutputStream fos = new FileOutputStream(file);//Convierte el archivo a String de bytes
+				OutputStreamWriter osw = new OutputStreamWriter(fos);//Convierte todos los bytes en el archivo
 				BufferedWriter bw = new BufferedWriter(osw);//Iniciamos el buffer
 				bw.write(getContent());//Escribimos el contenido
 				bw.close();//Cerramos el buffer
